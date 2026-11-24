@@ -1,0 +1,86 @@
+:root {
+  --paper: #f5f2ea;
+  --card: #fffdf7;
+  --ink: #1c1a16;
+  --muted: #6b655a;
+  --line: #ddd5c3;
+  --teal: #0e5a54;
+  --teal-soft: #e2efec;
+  --amber: #9a6a00;
+  --amber-soft: #f7ecd4;
+  --red: #8f2d1e;
+  --focus: #0e5a54;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0; background: var(--paper); color: var(--ink);
+  font: 15px/1.5 system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+.masthead {
+  display: flex; flex-wrap: wrap; gap: 16px; justify-content: space-between;
+  padding: 20px 24px 12px; border-bottom: 3px solid var(--teal);
+}
+.masthead h1 { margin: 0; font-size: 30px; letter-spacing: -0.5px; }
+.sub { margin: 6px 0 0; max-width: 640px; color: var(--muted); }
+.kpi {
+  display: flex; flex-wrap: wrap; gap: 8px 20px; margin: 0; padding: 4px 0;
+  max-width: 560px;
+}
+.kpi div { min-width: 120px; }
+.kpi dt { font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); }
+.kpi dd { margin: 0; font-weight: 650; font-size: 15px; }
+.tabs { display: flex; gap: 2px; padding: 0 24px; background: var(--card); border-bottom: 1px solid var(--line); }
+.tabs button {
+  border: 0; background: none; padding: 10px 14px; font: inherit; cursor: pointer;
+  color: var(--muted); border-bottom: 3px solid transparent;
+}
+.tabs button.active { color: var(--teal); border-bottom-color: var(--teal); font-weight: 650; }
+.tabs button:focus-visible, input:focus-visible, select:focus-visible, button:focus-visible {
+  outline: 3px solid var(--focus); outline-offset: 1px;
+}
+main { padding: 16px 24px 24px; }
+.filters {
+  display: flex; flex-wrap: wrap; gap: 12px; align-items: end;
+  background: var(--card); border: 1px solid var(--line); border-radius: 8px;
+  padding: 12px 14px; margin-bottom: 12px;
+}
+.filters label { font-size: 13px; color: var(--muted); display: grid; gap: 3px; }
+.filters input[type="search"], .filters select {
+  font: inherit; color: var(--ink); background: var(--paper);
+  border: 1px solid var(--line); border-radius: 6px; padding: 6px 8px; min-width: 170px;
+}
+.filters .check { display: flex; gap: 6px; align-items: center; padding-bottom: 7px; }
+.count { margin: 0 0 0 auto; align-self: center; color: var(--muted); font-size: 13px; }
+.tablewrap { overflow-x: auto; background: var(--card); border: 1px solid var(--line); border-radius: 8px; }
+table { border-collapse: collapse; width: 100%; font-size: 14px; }
+th, td { padding: 8px 10px; text-align: left; border-bottom: 1px solid var(--line); white-space: nowrap; }
+thead th { background: var(--teal-soft); color: var(--teal); font-size: 12px; text-transform: uppercase; letter-spacing: 0.05em; }
+tbody tr { cursor: pointer; }
+tbody tr:hover { background: #f0ebdd; }
+tbody tr[aria-selected="true"] { background: var(--amber-soft); }
+td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
+.badge {
+  display: inline-block; font-size: 11px; font-weight: 700; color: var(--teal);
+  border: 1px solid var(--teal); border-radius: 4px; padding: 0 5px; margin-left: 6px;
+}
+.hint, .note { color: var(--muted); font-size: 13px; }
+.detail {
+  margin-top: 14px; background: var(--card); border: 1px solid var(--line);
+  border-left: 4px solid var(--teal); border-radius: 8px; padding: 16px 18px;
+}
+.detail h2 { margin: 0 0 4px; font-size: 20px; }
+.detail h3 { margin: 16px 0 6px; font-size: 14px; text-transform: uppercase; letter-spacing: 0.05em; color: var(--teal); }
+.detail p { margin: 4px 0; }
+.detail ol { margin: 6px 0; padding-left: 20px; }
+.detail li { margin-bottom: 6px; }
+.verdict { background: var(--amber-soft); border-radius: 6px; padding: 8px 10px; }
+.method h2 { font-size: 20px; margin: 18px 0 6px; }
+.method h2:first-child { margin-top: 0; }
+.method table { background: var(--card); }
+.method td, .method th { white-space: normal; }
+.method code { font-family: ui-monospace, monospace; font-size: 13px; }
+footer { padding: 0 24px 20px; color: var(--muted); font-size: 13px; }
+@media (max-width: 760px) {
+  main, .masthead, .tabs { padding-left: 12px; padding-right: 12px; }
+  .count { margin-left: 0; }
+}

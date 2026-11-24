@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Token Radar — which pre-token protocol is worth farming next</title>
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<header class="masthead">
+  <div>
+    <h1>Token Radar</h1>
+    <p class="sub">Which pre-token protocol is worth farming next — and what to do about it. Snapshot 14 Nov 2026. Every value on this page is this entry's own claim, fitted from the snapshot's own figures.</p>
+  </div>
+  <dl class="kpi" id="kpi" aria-label="Model summary"></dl>
+</header>
+<nav class="tabs" aria-label="Sections">
+  <button type="button" data-tab="board" class="active" aria-current="page">Board</button>
+  <button type="button" data-tab="live">Live tokens</button>
+  <button type="button" data-tab="aside">Set aside</button>
+  <button type="button" data-tab="method">How it scores</button>
+</nav>
+<main>
+  <section id="tab-board" aria-label="Ranked board">
+    <form class="filters" id="filters" action="#" onsubmit="return false">
+      <label>Search <input type="search" id="q" placeholder="protocol name or slug" autocomplete="off"></label>
+      <label>Category
+        <select id="cat"><option value="">All categories</option></select>
+      </label>
+      <label class="check"><input type="checkbox" id="wl"> Watchlist only</label>
+      <label>Sort
+        <select id="sort">
+          <option value="value">Implied value (rank)</option>
+          <option value="tvl">TVL</option>
+          <option value="odds">Launch odds</option>
+          <option value="age">Age</option>
+          <option value="name">Name</option>
+        </select>
+      </label>
+      <p class="count" id="count" aria-live="polite"></p>
+    </form>
+    <div class="tablewrap">
+      <table id="board">
+        <thead><tr>
+          <th scope="col">Rank</th><th scope="col">Protocol</th><th scope="col">Category</th>
+          <th scope="col">Chains</th><th scope="col">TVL</th><th scope="col">7d</th>
+          <th scope="col">Age</th><th scope="col">Implied value</th><th scope="col">90% range</th><th scope="col">1y odds</th>
+        </tr></thead>
+        <tbody></tbody>
+      </table>
+    </div>
+    <p class="hint">Select a row to see how its value is built, its interval, its odds and its farm plan.</p>
+    <article id="detail" class="detail" hidden aria-label="Protocol detail"></article>
+  </section>
+  <section id="tab-live" hidden aria-label="Protocols whose token already trades">
+    <p class="note">These protocols record a token. The board never ranks them: a token that already trades is not a launch to come. Where the snapshot carries a usable market cap it is shown; where it records a token but no usable market cap, that is said plainly.</p>
+    <div class="tablewrap"><table id="livetab">
+      <thead><tr><th scope="col">Protocol</th><th scope="col">Category</th><th scope="col">Market cap</th></tr></thead>
+      <tbody></tbody>
+    </table></div>
+  </section>
+  <section id="tab-aside" hidden aria-label="Protocols set aside">
+    <p class="note">Set aside by one rule on the category field, never by name: a wrapped, staked, bridged or exchange product is not a protocol still waiting on a launch of its own. The rule is the same six categories the house's watchlist rule uses.</p>
+    <div class="tablewrap"><table id="asidetab">
+      <thead><tr><th scope="col">Protocol</th><th scope="col">Category</th><th scope="col">Why set aside</th></tr></thead>
+      <tbody></tbody>
+    </table></div>
+  </section>
+  <section id="tab-method" hidden aria-label="How it scores">
+    <article id="method" class="method"></article>
+  </section>
+</main>
+<footer>
+  <p>Built from the sealed snapshot of 14 Nov 2026. Implied values are the entry's own claim, never make.fun's. Say a protocol records no token, never that it has none: the snapshot is DefiLlama's record, not proof.</p>
+</footer>
+<script src="../data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
